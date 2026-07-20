@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.625rem;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  ::selection {
+    background: #a3e635;
+    color: #09090b;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #09090b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 5px;
+    border: 2px solid #09090b;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
+  }
+}
+
+/* ---------- marquee ---------- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 48s linear infinite;
+}
+
+/* ---------- markdown body (SKILL.md 渲染) ---------- */
+.markdown-body {
+  @apply text-[15px] leading-relaxed text-zinc-300;
+}
+.markdown-body h1 {
+  @apply mb-4 mt-2 text-2xl font-black tracking-tight text-zinc-50;
+}
+.markdown-body h2 {
+  @apply mb-4 mt-10 border-b border-white/10 pb-2 text-xl font-bold tracking-tight text-zinc-50;
+}
+.markdown-body h3 {
+  @apply mb-3 mt-8 font-mono text-sm font-bold uppercase tracking-wider text-lime-400;
+}
+.markdown-body h4 {
+  @apply mb-2 mt-6 text-base font-bold text-zinc-100;
+}
+.markdown-body p {
+  @apply my-4;
+}
+.markdown-body ul,
+.markdown-body ol {
+  @apply my-4 space-y-2 pl-6;
+}
+.markdown-body ul {
+  list-style: disc;
+}
+.markdown-body ol {
+  list-style: decimal;
+}
+.markdown-body li::marker {
+  @apply text-lime-400/70;
+}
+.markdown-body code {
+  @apply rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-lime-300;
+}
+.markdown-body pre {
+  @apply my-4 overflow-x-auto rounded-lg border border-white/10 bg-black/60 p-4;
+}
+.markdown-body pre code {
+  @apply bg-transparent p-0 text-[13px] leading-relaxed text-zinc-200;
+}
+.markdown-body blockquote {
+  @apply my-4 border-l-2 border-lime-400/60 pl-4 italic text-zinc-400;
+}
+.markdown-body table {
+  @apply my-4 w-full border-collapse text-sm;
+}
+.markdown-body th {
+  @apply border-b border-white/15 px-3 py-2 text-left font-mono text-xs uppercase tracking-wider text-zinc-400;
+}
+.markdown-body td {
+  @apply border-b border-white/5 px-3 py-2 align-top;
+}
+.markdown-body a {
+  @apply text-lime-400 underline underline-offset-4 hover:text-lime-300;
+}
+.markdown-body hr {
+  @apply my-8 border-white/10;
+}
+.markdown-body strong {
+  @apply font-bold text-zinc-100;
+}

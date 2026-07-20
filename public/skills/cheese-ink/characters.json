@@ -1,0 +1,19 @@
+{
+  "characters": [
+    {
+      "name": "卷卷",
+      "image": "characters/卷卷.png",
+      "description": "短发年轻女生，肤色白皙，身穿白色衬衫配领带，圆脸，表情略带无奈"
+    },
+    {
+      "name": "Mark",
+      "image": "characters/Mark.png",
+      "description": "短发男生，戴圆框眼镜，身穿蓝色连帽卫衣内搭白T恤，表情友好略带疲惫"
+    },
+    {
+      "name": "Bella",
+      "image": "characters/Bella.png",
+      "description": "棕色长直发女生，肤色白皙，身穿米白色针织衫/开衫，表情温柔"
+    }
+  ]
+}
