@@ -27,8 +27,8 @@ export const SKILL = {
   zipSize: '10.7 MB',
   installCommand: 'unzip cheese-ink.zip -d ~/.claude/skills/',
   // Agent 安装范式：把提示词发给 AI，AI 读取 install 文档自行完成安装
-  installDocUrl: 'http://localhost:7100/install/cheese-ink.md',
-  installPrompt: '请根据 http://localhost:7100/install/cheese-ink.md，安装 cheese-ink。',
+  installDocUrl: 'https://markcheese523.github.io/cheesehub/install/cheese-ink.md',
+  installPrompt: '请根据 https://markcheese523.github.io/cheesehub/install/cheese-ink.md，安装 cheese-ink。',
 } as const
 
 export const CHARACTERS: Character[] = [
