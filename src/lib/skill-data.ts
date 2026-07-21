@@ -17,7 +17,7 @@ export const SKILL = {
   id: 'cheese-ink',
   name: 'cheese-ink',
   author: 'mark',
-  version: 'v1.0.0',
+  version: 'v1.0.1',
   updated: '2026-07',
   description: '选择角色 + 描述场景/情绪/对话 → 生成 Q 版蜡笔手绘风格漫画插图',
   cardTags: ['生图', '插图', '笔记配图'],
@@ -106,6 +106,6 @@ export const INSTALL_SNIPPET: { type: 'comment' | 'cmd' | 'plain'; text: string 
   { type: 'cmd', text: 'unzip cheese-ink.zip -d ~/.claude/skills/' },
   { type: 'cmd', text: '# 配置 API Key' },
   { type: 'cmd', text: 'cat > ~/.cheese-ink/config.json <<EOF' },
-  { type: 'plain', text: '{ "api_key": "sk-...", "model": "google/gemini-3-pro-image-preview" }' },
+  { type: 'plain', text: '{ "api_key": "sk-...", "model": "google/gemini-3-pro-image" }' },
   { type: 'plain', text: 'EOF' },
 ]

@@ -189,7 +189,7 @@ export default function SkillDetailPage({ onBack, onNavigate }: SkillDetailPageP
             ，不会被提交到任何仓库：
           </p>
           <pre className="mt-4 overflow-x-auto rounded-lg border border-white/10 bg-black/60 p-4 font-mono text-[13px] text-zinc-300">
-            {`{ "api_key": "sk-...", "model": "google/gemini-3-pro-image-preview" }`}
+            {`{ "api_key": "sk-...", "model": "google/gemini-3-pro-image" }`}
           </pre>
         </div>
       </main>

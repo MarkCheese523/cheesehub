@@ -32,7 +32,7 @@ def load_config() -> dict:
     if not config_path.exists():
         print(f"❌ 配置文件不存在: {config_path}", file=sys.stderr)
         print("   请创建该文件，内容格式:", file=sys.stderr)
-        print('   {"api_key": "sk-...", "model": "google/gemini-3-pro-image-preview"}', file=sys.stderr)
+        print('   {"api_key": "sk-...", "model": "google/gemini-3-pro-image"}', file=sys.stderr)
         sys.exit(1)
 
     with open(config_path) as f:
@@ -59,7 +59,7 @@ def main():
     # 1. 读取配置
     config = load_config()
     api_key = config["api_key"]
-    model = config.get("model", "google/gemini-3-pro-image-preview")
+    model = config.get("model", "google/gemini-3-pro-image")
 
     # 2. 渲染 prompt
     prompt = PROMPT_TEMPLATE.format(

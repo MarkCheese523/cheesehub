@@ -27,14 +27,14 @@ unzip -o /tmp/cheese-ink.zip -d <SKILLS_DIR>/
 
 ## 二、配置 API Key
 
-cheese-ink 通过 ZenMux API 调用 `google/gemini-3-pro-image-preview` 生图，需要 API Key：
+cheese-ink 通过 ZenMux API 调用 `google/gemini-3-pro-image` 生图，需要 API Key：
 
 ```bash
 mkdir -p ~/.cheese-ink
 cat > ~/.cheese-ink/config.json <<'EOF'
 {
   "api_key": "sk-...",
-  "model": "google/gemini-3-pro-image-preview"
+  "model": "google/gemini-3-pro-image"
 }
 EOF
 ```

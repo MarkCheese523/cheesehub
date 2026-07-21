@@ -1,7 +1,7 @@
 ---
 name: cheese-ink
 description: 芝士青年笔记插图生成器。选择角色 + 描述场景/情绪/对话 → 生成 Q 版蜡笔手绘风格漫画插图。TRIGGER — 当用户说"生图"、"生成插图"、"笔记配图"、"cheese-ink"、"芝士插图"、"画一个"、"帮我画"等与生成笔记插图相关的表达时，自动执行下方工作流。
-version: 1.0.0
+version: 1.0.1
 allowed-tools: Bash Read Write
 ---
 
@@ -72,7 +72,7 @@ python3 scripts/generate.py \
 脚本会：
 - 读取 `~/.cheese-ink/config.json` 获取 API Key
 - 把参考图和 prompt 传入 Gemini 模型生成图片（固定 21:9 比例，2K 分辨率）
-- 调用 ZenMux API（模型：`google/gemini-3-pro-image-preview`，Vertex AI 协议）
+- 调用 ZenMux API（模型：`google/gemini-3-pro-image`，Vertex AI 协议）
 
 ### Step 5 — 告知结果
 
@@ -127,7 +127,7 @@ API Key 存放在 `~/.cheese-ink/config.json`：
 ```json
 {
   "api_key": "sk-...",
-  "model": "google/gemini-3-pro-image-preview"
+  "model": "google/gemini-3-pro-image"
 }
 ```
 
