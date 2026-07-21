@@ -9,6 +9,11 @@ const EXAMPLES = [
     alt: 'cheese-ink 生成示例 2',
     caption: '示例 02 — 宽幅场景（21:9）',
   },
+  {
+    src: 'skills/cheese-ink/web/example-3.jpg',
+    alt: 'cheese-ink 生成示例 3',
+    caption: '示例 03 — 「2.8T参数？吓到了！」（21:9，2026-07-21 新作）',
+  },
 ]
 
 export default function ExamplesPanel() {
