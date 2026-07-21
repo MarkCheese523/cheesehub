@@ -98,7 +98,7 @@ export const SKILL_FILES: SkillFile[] = [
 ]
 
 export const MARQUEE_TEXT =
-  '....:: cheesehub/mark ::.... skills agents 生图 skill.md characters.json zenmux gemini Q版蜡笔 黑+荧光绿 鸟山明表情 >>> install draw publish @@ 卷卷 @@ Mark @@ Bella ---- ink illustrations notes prompts'
+  '....:: cheesehub/cheeseheart ::.... skills agents 生图 skill.md characters.json zenmux gemini Q版蜡笔 黑+荧光绿 鸟山明表情 >>> install draw publish @@ 卷卷 @@ Mark @@ Bella ---- ink illustrations notes prompts'
 
 export const INSTALL_SNIPPET: { type: 'comment' | 'cmd' | 'plain'; text: string }[] = [
   { type: 'comment', text: '# 下载并解压到 Claude Code skills 目录' },

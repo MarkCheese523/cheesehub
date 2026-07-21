@@ -24,12 +24,12 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto max-w-6xl px-4 pb-14 pt-20 sm:px-6 sm:pt-28">
-        <p className="mb-6 font-mono text-xs text-lime-400">// mark 的个人 skill 仓库</p>
+        <p className="mb-6 font-mono text-xs text-lime-400">// cheeseheart 公司级 skill 仓库</p>
         <h1 className="max-w-4xl text-5xl font-black leading-[1.05] tracking-tighter text-zinc-50 sm:text-7xl">
           Cheese for your <span className="text-lime-400">Agents.</span>
         </h1>
         <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-400 sm:text-lg">
-          Mark 自建的 Agent Skills 目录 —— 工具应自建，而非采购。
+          CheeseHub 是 CheeseHeart 的公司级 Agent Skills 仓库 —— 工具应自建，而非采购。
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-xs text-zinc-500">

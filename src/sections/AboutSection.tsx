@@ -8,8 +8,8 @@ export default function AboutSection() {
         </h2>
         <div className="mt-6 max-w-2xl space-y-4 text-[15px] leading-relaxed text-zinc-400">
           <p>
-            CheeseHub 是 Mark（王佳）的个人 Agent Skills 仓库。这里收录的每一个
-            skill，都是在真实工作流里反复打磨出来的自用工具 —— 从笔记插图生成开始，陆续有来。
+            CheeseHub 是 CheeseHeart 的公司级 Agent Skills 仓库。这里收录的每一个
+            skill，都是团队在真实工作流里反复打磨出来的自用工具 —— 从笔记插图生成开始，陆续有来。
           </p>
           <p>
             理念很简单：

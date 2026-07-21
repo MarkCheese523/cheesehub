@@ -2,7 +2,7 @@ import { ArrowUpRight } from 'lucide-react'
 
 const COLUMNS: { title: string; links: string[] }[] = [
   { title: 'Browse', links: ['Skills', 'Featured', '全部'] },
-  { title: 'About', links: ['关于 CheeseHub', '@mark', '理念'] },
+  { title: 'About', links: ['关于 CheeseHub', 'CheeseHeart', '理念'] },
   { title: 'Ecosystem', links: ['Claude Code', 'ZenMux', 'Gemini', 'Skill 规范'] },
 ]
 
@@ -44,8 +44,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex items-center justify-between border-t border-white/5 py-6 font-mono text-[11px] text-zinc-600">
-          <span>© 2026 CheeseHub</span>
-          <span>made with 🧀 by mark</span>
+          <span>© 2026 CheeseHeart</span>
+          <span>made with 🧀 by cheeseheart</span>
         </div>
       </div>
 
