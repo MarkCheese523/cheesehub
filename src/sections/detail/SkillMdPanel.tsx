@@ -40,8 +40,8 @@ export default function SkillMdPanel() {
 
   if (html === null) {
     return (
-      <div className="flex items-center gap-2 py-16 font-mono text-xs text-zinc-500">
-        <LoaderCircle className="size-4 animate-spin text-lime-400" />
+      <div className="flex items-center gap-2 py-16 font-mono text-xs text-muted-foreground">
+        <LoaderCircle className="size-4 animate-spin text-lime-600 dark:text-lime-400" />
         正在加载 SKILL.md …
       </div>
     )

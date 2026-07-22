@@ -6,15 +6,17 @@ import SkillMdPanel from '@/sections/detail/SkillMdPanel'
 import CharactersPanel from '@/sections/detail/CharactersPanel'
 import ExamplesPanel from '@/sections/detail/ExamplesPanel'
 import FilesPanel from '@/sections/detail/FilesPanel'
+import ChangelogPanel from '@/sections/detail/ChangelogPanel'
 import { SKILL } from '@/lib/skill-data'
 
-type TabKey = 'skillmd' | 'characters' | 'examples' | 'files'
+type TabKey = 'skillmd' | 'characters' | 'examples' | 'files' | 'changelog'
 
 const TABS: { key: TabKey; label: string }[] = [
   { key: 'skillmd', label: 'SKILL.md' },
   { key: 'characters', label: '角色' },
   { key: 'examples', label: '示例' },
   { key: 'files', label: '文件' },
+  { key: 'changelog', label: '更新日志' },
 ]
 
 interface SkillDetailPageProps {
@@ -43,13 +45,13 @@ export default function SkillDetailPage({ onBack, onNavigate }: SkillDetailPageP
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar onNavigate={onNavigate} />
 
       <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <button
           onClick={onBack}
-          className="group inline-flex items-center gap-2 font-mono text-xs text-zinc-500 transition-colors hover:text-lime-400"
+          className="group inline-flex items-center gap-2 font-mono text-xs text-muted-foreground transition-colors hover:text-lime-600 dark:hover:text-lime-400"
         >
           <ArrowLeft className="size-3.5 transition-transform group-hover:-translate-x-0.5" />
           cd ../skills
@@ -59,24 +61,24 @@ export default function SkillDetailPage({ onBack, onNavigate }: SkillDetailPageP
         <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div>
             <div className="flex flex-wrap items-center gap-3">
-              <h1 className="text-4xl font-black tracking-tighter text-zinc-50 sm:text-5xl">
+              <h1 className="text-4xl font-black tracking-tighter text-foreground sm:text-5xl">
                 {SKILL.name}
               </h1>
-              <span className="rounded-full border border-lime-400/40 bg-lime-400/10 px-2.5 py-0.5 font-mono text-xs font-bold text-lime-400">
+              <span className="rounded-full border border-lime-400/40 bg-lime-400/10 px-2.5 py-0.5 font-mono text-xs font-bold text-lime-600 dark:text-lime-400">
                 {SKILL.version}
               </span>
             </div>
-            <p className="mt-3 font-mono text-xs text-zinc-500">
-              @{SKILL.author} <span className="text-lime-400">·</span> updated {SKILL.updated}
+            <p className="mt-3 font-mono text-xs text-muted-foreground">
+              @{SKILL.author} <span className="text-lime-600 dark:text-lime-400">·</span> updated {SKILL.updated}
             </p>
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-zinc-400">
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
               {SKILL.description}。黑+荧光绿双色，鸟山明式表情，ZenMux Gemini 生图。
             </p>
             <div className="mt-4 flex flex-wrap gap-1.5">
               {SKILL.detailTags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[11px] text-zinc-400"
+                  className="rounded-full border border-foreground/10 bg-foreground/[0.03] px-2.5 py-1 font-mono text-[11px] text-muted-foreground"
                 >
                   {tag}
                 </span>
@@ -95,7 +97,7 @@ export default function SkillDetailPage({ onBack, onNavigate }: SkillDetailPageP
             </a>
             <button
               onClick={copyInstallPrompt}
-              className="inline-flex items-center gap-2 rounded-md border border-lime-400/40 bg-lime-400/10 px-4 py-2 font-mono text-xs font-bold text-lime-300 transition-colors hover:bg-lime-400/20"
+              className="inline-flex items-center gap-2 rounded-md border border-lime-400/40 bg-lime-400/10 px-4 py-2 font-mono text-xs font-bold text-lime-600 transition-colors hover:bg-lime-400/20 dark:text-lime-300"
             >
               {copied ? (
                 <>
@@ -114,7 +116,7 @@ export default function SkillDetailPage({ onBack, onNavigate }: SkillDetailPageP
 
         {/* Agent 安装提示词 */}
         <div className="mt-8 rounded-xl border border-lime-400/20 bg-lime-400/[0.04] p-4">
-          <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
+          <p className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
             // 将提示词发送给你的 AI 安装该 skill
           </p>
           <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -129,21 +131,21 @@ export default function SkillDetailPage({ onBack, onNavigate }: SkillDetailPageP
               {copied ? '已复制' : '复制'}
             </button>
           </div>
-          <p className="mt-3 font-mono text-[11px] leading-5 text-zinc-600">
+          <p className="mt-3 font-mono text-[11px] leading-5 text-muted-foreground/70">
             AI 会读取安装文档，自动完成下载、解压到 skills 目录、API Key 配置，重启会话即可用
           </p>
         </div>
 
         {/* 触发词 */}
-        <div className="mt-8 rounded-xl border border-white/10 bg-white/[0.02] p-4">
-          <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-600">
+        <div className="mt-8 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4">
+          <p className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground/70">
             // 触发词 trigger words
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             {SKILL.triggers.map((trigger) => (
               <code
                 key={trigger}
-                className="rounded border border-lime-400/20 bg-lime-400/[0.06] px-2 py-1 font-mono text-xs text-lime-300"
+                className="rounded border border-lime-400/20 bg-lime-400/[0.06] px-2 py-1 font-mono text-xs text-lime-600 dark:text-lime-300"
               >
                 "{trigger}"
               </code>
@@ -152,15 +154,15 @@ export default function SkillDetailPage({ onBack, onNavigate }: SkillDetailPageP
         </div>
 
         {/* Tabs */}
-        <div className="mt-10 flex flex-wrap gap-1 border-b border-white/10">
+        <div className="mt-10 flex flex-wrap gap-1 border-b border-foreground/10">
           {TABS.map((t) => (
             <button
               key={t.key}
               onClick={() => setTab(t.key)}
               className={
                 tab === t.key
-                  ? '-mb-px border-b-2 border-lime-400 px-4 py-2.5 font-mono text-xs font-bold text-lime-400'
-                  : '-mb-px border-b-2 border-transparent px-4 py-2.5 font-mono text-xs text-zinc-500 transition-colors hover:text-zinc-200'
+                  ? '-mb-px border-b-2 border-lime-400 px-4 py-2.5 font-mono text-xs font-bold text-lime-600 dark:text-lime-400'
+                  : '-mb-px border-b-2 border-transparent px-4 py-2.5 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground'
               }
             >
               {t.label}
@@ -173,17 +175,18 @@ export default function SkillDetailPage({ onBack, onNavigate }: SkillDetailPageP
           {tab === 'characters' && <CharactersPanel />}
           {tab === 'examples' && <ExamplesPanel />}
           {tab === 'files' && <FilesPanel />}
+          {tab === 'changelog' && <ChangelogPanel />}
         </div>
 
         {/* 配置说明 */}
-        <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
-          <div className="flex items-center gap-2 font-mono text-xs font-bold text-zinc-300">
-            <KeyRound className="size-3.5 text-lime-400" />
+        <div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] p-5">
+          <div className="flex items-center gap-2 font-mono text-xs font-bold text-foreground">
+            <KeyRound className="size-3.5 text-lime-600 dark:text-lime-400" />
             配置说明
           </div>
-          <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             API Key 存放在
-            <code className="mx-1 rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-lime-300">
+            <code className="mx-1 rounded bg-foreground/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-lime-600 dark:text-lime-300">
               ~/.cheese-ink/config.json
             </code>
             ，不会被提交到任何仓库：

@@ -13,7 +13,7 @@ interface HomePageProps {
 
 export default function HomePage({ onNavigate, onOpenSkill }: HomePageProps) {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar onNavigate={onNavigate} />
       <main>
         <Hero />

@@ -16,40 +16,40 @@ export default function InstallSection() {
   }
 
   return (
-    <section className="border-t border-white/5">
+    <section className="border-t border-foreground/5">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-2">
         <div>
-          <p className="font-mono text-xs text-lime-400">// install</p>
-          <h2 className="mt-4 text-3xl font-black tracking-tight text-zinc-50 sm:text-4xl">
+          <p className="font-mono text-xs text-lime-600 dark:text-lime-400">// install</p>
+          <h2 className="mt-4 text-3xl font-black tracking-tight text-foreground sm:text-4xl">
             一句话安装
           </h2>
-          <p className="mt-6 max-w-md text-[15px] leading-relaxed text-zinc-400">
+          <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
             不用手动下载解压。把右侧提示词
-            <span className="text-zinc-200">复制并发给你的 AI</span>
+            <span className="text-foreground/80">复制并发给你的 AI</span>
             ，它会读取安装文档，自动把 skill 装进你的 skills 目录。
           </p>
-          <ul className="mt-6 space-y-2 font-mono text-xs text-zinc-500">
+          <ul className="mt-6 space-y-2 font-mono text-xs text-muted-foreground">
             <li className="flex items-center gap-2">
-              <span className="text-lime-400">01</span> 复制提示词
+              <span className="text-lime-600 dark:text-lime-400">01</span> 复制提示词
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-lime-400">02</span> 发给你的 AI（Claude Code / Kimi / Cursor …）
+              <span className="text-lime-600 dark:text-lime-400">02</span> 发给你的 AI（Claude Code / Kimi / Cursor …）
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-lime-400">03</span> AI 自动下载、解压、配置，重启即用
+              <span className="text-lime-600 dark:text-lime-400">03</span> AI 自动下载、解压、配置，重启即用
             </li>
           </ul>
           <a
             href={SKILL.zipUrl}
             download
-            className="mt-8 inline-flex items-center gap-2 font-mono text-xs text-zinc-500 underline decoration-zinc-700 underline-offset-4 transition-colors hover:text-lime-300"
+            className="mt-8 inline-flex items-center gap-2 font-mono text-xs text-muted-foreground underline decoration-foreground/20 underline-offset-4 transition-colors hover:text-lime-600 dark:hover:text-lime-300"
           >
             <Download className="size-3.5" />
             手动党？直接下载 cheese-ink.zip（{SKILL.zipSize}）
           </a>
         </div>
 
-        {/* 提示词卡片 */}
+        {/* 提示词卡片（终端窗口，两个主题下均保持纯暗色） */}
         <div className="overflow-hidden rounded-xl border border-lime-400/20 bg-black/60 shadow-[0_0_60px_-20px_rgba(163,230,53,0.25)]">
           <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
             <Sparkles className="size-3.5 text-lime-400" />

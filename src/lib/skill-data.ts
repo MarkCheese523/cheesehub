@@ -97,6 +97,25 @@ export const SKILL_FILES: SkillFile[] = [
   },
 ]
 
+export interface ChangelogEntry {
+  version: string
+  date: string
+  summary: string
+}
+
+export const CHANGELOG: ChangelogEntry[] = [
+  {
+    version: 'v1.0.1',
+    date: '2026-07-21',
+    summary: '模型迁移：preview 模型过期，切换到稳定版 google/gemini-3-pro-image',
+  },
+  {
+    version: 'v1.0.0',
+    date: '2026-07-17',
+    summary: '首个版本：三角色（卷卷 / Mark / Bella）、ZenMux Gemini 生图、固定 21:9 2K 输出',
+  },
+]
+
 export const MARQUEE_TEXT =
   '....:: cheesehub/cheeseheart ::.... skills agents 生图 skill.md characters.json zenmux gemini Q版蜡笔 黑+荧光绿 鸟山明表情 >>> install draw publish @@ 卷卷 @@ Mark @@ Bella ---- ink illustrations notes prompts'
 
