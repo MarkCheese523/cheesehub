@@ -1,3 +1,5 @@
+import { SKILL } from '@/lib/skill-data'
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
@@ -37,7 +39,7 @@ export default function Hero() {
           <span className="text-lime-600 dark:text-lime-400">·</span>
           <span className="text-foreground/80">3</span> characters
           <span className="text-lime-600 dark:text-lime-400">·</span>
-          v1.0.0
+          {SKILL.version}
         </div>
       </div>
     </section>
