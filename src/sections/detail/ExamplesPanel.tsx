@@ -27,7 +27,15 @@ export default function ExamplesPanel() {
           key={ex.src}
           className="overflow-hidden rounded-xl border border-foreground/10 bg-foreground/[0.03]"
         >
-          <img src={ex.src} alt={ex.alt} loading="lazy" className="w-full" />
+          {/* 限高居中：宽幅自然满宽，竖图居中不超限高，避免不同比例图片撑出混乱高度 */}
+          <div className="flex justify-center bg-foreground/[0.02] p-3 sm:p-4">
+            <img
+              src={ex.src}
+              alt={ex.alt}
+              loading="lazy"
+              className="h-auto max-h-[420px] w-auto max-w-full rounded-lg sm:max-h-[520px]"
+            />
+          </div>
           <figcaption className="border-t border-foreground/5 px-4 py-3 font-mono text-[11px] text-muted-foreground">
             {ex.caption}
           </figcaption>
