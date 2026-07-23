@@ -26,22 +26,22 @@ interface SkillDetailPageProps {
 
 export default function SkillDetailPage({ onBack, onNavigate }: SkillDetailPageProps) {
   const [tab, setTab] = useState<TabKey>('skillmd')
-  const [copied, setCopied] = useState(false)
+  const [copiedKey, setCopiedKey] = useState<string | null>(null)
 
-  const copyInstallPrompt = async () => {
+  const copyText = async (text: string, key: string) => {
     try {
-      await navigator.clipboard.writeText(SKILL.installPrompt)
+      await navigator.clipboard.writeText(text)
     } catch {
       // clipboard API 不可用时降级
       const textarea = document.createElement('textarea')
-      textarea.value = SKILL.installPrompt
+      textarea.value = text
       document.body.appendChild(textarea)
       textarea.select()
       document.execCommand('copy')
       document.body.removeChild(textarea)
     }
-    setCopied(true)
-    window.setTimeout(() => setCopied(false), 2000)
+    setCopiedKey(key)
+    window.setTimeout(() => setCopiedKey(null), 2000)
   }
 
   return (
@@ -96,10 +96,10 @@ export default function SkillDetailPage({ onBack, onNavigate }: SkillDetailPageP
               下载 .zip
             </a>
             <button
-              onClick={copyInstallPrompt}
+              onClick={() => copyText(SKILL.installPrompt, 'install')}
               className="inline-flex items-center gap-2 rounded-md border border-lime-400/40 bg-lime-400/10 px-4 py-2 font-mono text-xs font-bold text-lime-600 transition-colors hover:bg-lime-400/20 dark:text-lime-300"
             >
-              {copied ? (
+              {copiedKey === 'install' ? (
                 <>
                   <Check className="size-3.5" />
                   已复制!
@@ -114,25 +114,42 @@ export default function SkillDetailPage({ onBack, onNavigate }: SkillDetailPageP
           </div>
         </div>
 
-        {/* Agent 安装提示词 */}
+        {/* Agent 安装 / 更新提示词 */}
         <div className="mt-8 rounded-xl border border-lime-400/20 bg-lime-400/[0.04] p-4">
           <p className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-            // 将提示词发送给你的 AI 安装该 skill
+            // 将提示词发送给你的 AI
           </p>
+          {/* 安装 */}
           <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center">
             <p className="flex-1 rounded-lg border border-white/10 bg-black/40 px-4 py-3 font-mono text-[13px] leading-6 text-zinc-200">
               {SKILL.installPrompt}
             </p>
             <button
-              onClick={copyInstallPrompt}
+              onClick={() => copyText(SKILL.installPrompt, 'install')}
               className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-lime-400 px-4 py-3 font-mono text-xs font-bold text-zinc-950 transition-colors hover:bg-lime-300"
             >
-              {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
-              {copied ? '已复制' : '复制'}
+              {copiedKey === 'install' ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+              {copiedKey === 'install' ? '已复制' : '复制安装'}
             </button>
           </div>
-          <p className="mt-3 font-mono text-[11px] leading-5 text-muted-foreground/70">
-            AI 会读取安装文档，自动完成下载、解压到 skills 目录、API Key 配置，重启会话即可用
+          <p className="mt-2 font-mono text-[11px] leading-5 text-muted-foreground/70">
+            首次使用 → AI 读取安装文档，自动下载、解压到 skills 目录、配置 API Key
+          </p>
+          {/* 更新 */}
+          <div className="mt-4 flex flex-col gap-3 border-t border-foreground/10 pt-4 sm:flex-row sm:items-center">
+            <p className="flex-1 rounded-lg border border-white/10 bg-black/40 px-4 py-3 font-mono text-[13px] leading-6 text-zinc-200">
+              {SKILL.updatePrompt}
+            </p>
+            <button
+              onClick={() => copyText(SKILL.updatePrompt, 'update')}
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-lime-400/40 bg-lime-400/10 px-4 py-3 font-mono text-xs font-bold text-lime-600 transition-colors hover:bg-lime-400/20 dark:text-lime-300"
+            >
+              {copiedKey === 'update' ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+              {copiedKey === 'update' ? '已复制' : '复制更新'}
+            </button>
+          </div>
+          <p className="mt-2 font-mono text-[11px] leading-5 text-muted-foreground/70">
+            已装过旧版 → AI 按更新指南升级，保留你的自建角色和 output 图片，重启会话生效
           </p>
         </div>
 

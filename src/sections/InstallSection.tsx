@@ -3,13 +3,13 @@ import { Check, Copy, Download, Sparkles } from 'lucide-react'
 import { SKILL } from '@/lib/skill-data'
 
 export default function InstallSection() {
-  const [copied, setCopied] = useState(false)
+  const [copiedKey, setCopiedKey] = useState<string | null>(null)
 
-  const copyPrompt = async () => {
+  const copyText = async (text: string, key: string) => {
     try {
-      await navigator.clipboard.writeText(SKILL.installPrompt)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      await navigator.clipboard.writeText(text)
+      setCopiedKey(key)
+      setTimeout(() => setCopiedKey(null), 2000)
     } catch {
       // 剪贴板不可用时静默失败，用户可手动选择复制
     }
@@ -62,10 +62,10 @@ export default function InstallSection() {
               {SKILL.installPrompt}
             </p>
             <button
-              onClick={copyPrompt}
+              onClick={() => copyText(SKILL.installPrompt, 'install')}
               className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-lime-400 px-4 py-2.5 font-mono text-sm font-bold text-zinc-950 transition-colors hover:bg-lime-300"
             >
-              {copied ? (
+              {copiedKey === 'install' ? (
                 <>
                   <Check className="size-4" /> 已复制，去发给你的 AI 吧
                 </>
@@ -76,8 +76,31 @@ export default function InstallSection() {
               )}
             </button>
             <p className="mt-4 font-mono text-[11px] leading-5 text-zinc-600">
-              AI 会读取 {SKILL.installDocUrl.replace('http://', '')} 中的安装文档完成安装
+              AI 会读取安装文档完成安装
             </p>
+            {/* 更新 */}
+            <div className="mt-4 border-t border-white/10 pt-4">
+              <p className="rounded-lg border border-white/10 bg-white/[0.03] p-4 font-mono text-[13px] leading-7 text-zinc-200">
+                {SKILL.updatePrompt}
+              </p>
+              <button
+                onClick={() => copyText(SKILL.updatePrompt, 'update')}
+                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-lime-400/40 bg-lime-400/10 px-4 py-2.5 font-mono text-sm font-bold text-lime-300 transition-colors hover:bg-lime-400/20"
+              >
+                {copiedKey === 'update' ? (
+                  <>
+                    <Check className="size-4" /> 已复制更新提示词
+                  </>
+                ) : (
+                  <>
+                    <Copy className="size-4" /> 已装过旧版？复制更新提示词
+                  </>
+                )}
+              </button>
+              <p className="mt-3 font-mono text-[11px] leading-5 text-zinc-600">
+                升级保留你的自建角色和 output 图片
+              </p>
+            </div>
           </div>
         </div>
       </div>

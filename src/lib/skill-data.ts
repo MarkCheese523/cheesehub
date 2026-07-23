@@ -29,6 +29,10 @@ export const SKILL = {
   // Agent 安装范式：把提示词发给 AI，AI 读取 install 文档自行完成安装
   installDocUrl: 'https://markcheese523.github.io/cheesehub/install/cheese-ink.md',
   installPrompt: '请根据 https://markcheese523.github.io/cheesehub/install/cheese-ink.md，安装 cheese-ink。',
+  // 更新范式：已安装的用户发送更新提示词，保留自建角色和 output 数据
+  updateDocUrl: 'https://markcheese523.github.io/cheesehub/install/update-cheese-ink.md',
+  updatePrompt:
+    '请根据 https://markcheese523.github.io/cheesehub/install/update-cheese-ink.md，把我已安装的 cheese-ink 更新到最新版。',
 } as const
 
 export const CHARACTERS: Character[] = [
